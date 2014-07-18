@@ -39,9 +39,9 @@
     <p><%= buhin.body %></p>
     <p><%= link_to 'Delete', buhin_path(buhin), method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
   </div>
+<% end %>
 
 <%= render 'buhins/form' %>
 
-<% end %>
 <%= link_to 'Edit', edit_jikken_path(@jikken) %> |
 <%= link_to 'Back', jikkens_path %>
