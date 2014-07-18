@@ -1,4 +1,4 @@
 class Jikken < ActiveRecord::Base
   has_many :buhins
-  has_one  :syaryo
+  has_many :syaryos
 end

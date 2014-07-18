@@ -10,6 +10,8 @@ class JikkensController < ApplicationController
   # GET /jikkens/1
   # GET /jikkens/1.json
   def show
+    @syaryos = @jikken.syaryos.all
+    @syaryo  = @jikken.syaryos.build
     @buhins = @jikken.buhins.all
     @buhin  = @jikken.buhins.build
   end
