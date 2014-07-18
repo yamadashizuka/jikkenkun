@@ -1,0 +1,41 @@
+<%= form_for(@syaryo) do |f| %>
+  <% if @syaryo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@syaryo.errors.count, "error") %> prohibited this syaryo from being saved:</h2>
+
+      <ul>
+      <% @syaryo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number_plate %><br>
+    <%= f.text_field :number_plate %>
+  </div>
+  <div class="field">
+    <%= f.label :keeping_place %><br>
+    <%= f.text_field :keeping_place %>
+  </div>
+  <div class="field">
+    <%= f.label :condition %><br>
+    <%= f.number_field :condition %>
+  </div>
+  <div class="field">
+    <%= f.label :memo %><br>
+    <%= f.text_area :memo %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.number_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :jikken_id %><br>
+    <%= f.number_field :jikken_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

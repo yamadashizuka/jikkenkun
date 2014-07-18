@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hinmei: MyString
+  hinban: MyString
+  nouhin_sya: MyString
+  nouhin_day: 2014-07-18 10:26:09
+  tantou: MyString
+  kosu: 
+  jikken_id: 1
+
+two:
+  hinmei: MyString
+  hinban: MyString
+  nouhin_sya: MyString
+  nouhin_day: 2014-07-18 10:26:09
+  tantou: MyString
+  kosu: 
+  jikken_id: 1

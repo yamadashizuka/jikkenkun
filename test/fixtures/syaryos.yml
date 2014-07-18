@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number_plate: MyString
+  keeping_place: MyString
+  condition: 1
+  memo: MyText
+  status: 1
+  jikken_id: 1
+
+two:
+  number_plate: MyString
+  keeping_place: MyString
+  condition: 1
+  memo: MyText
+  status: 1
+  jikken_id: 1

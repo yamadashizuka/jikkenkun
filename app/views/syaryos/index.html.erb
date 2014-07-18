@@ -1,0 +1,35 @@
+<h1>車両一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number plate</th>
+      <th>Keeping place</th>
+      <th>Condition</th>
+      <th>Memo</th>
+      <th>Status</th>
+      <th>Jikken</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @syaryos.each do |syaryo| %>
+      <tr>
+        <td><%= syaryo.number_plate %></td>
+        <td><%= syaryo.keeping_place %></td>
+        <td><%= syaryo.condition %></td>
+        <td><%= syaryo.memo %></td>
+        <td><%= syaryo.status %></td>
+        <td><%= syaryo.jikken_id %></td>
+        <td><%= link_to 'Show', syaryo %></td>
+        <td><%= link_to 'Edit', edit_syaryo_path(syaryo) %></td>
+        <td><%= link_to 'Destroy', syaryo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Syaryo', new_syaryo_path %>

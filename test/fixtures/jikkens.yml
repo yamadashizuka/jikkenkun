@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  plan_start: 2014-07-17 19:37:29
+  plan_end: 2014-07-17 19:37:29
+  act_start: 2014-07-17 19:37:29
+  act_end: 2014-07-17 19:37:29
+  memo: MyText
+
+two:
+  title: MyString
+  plan_start: 2014-07-17 19:37:29
+  plan_end: 2014-07-17 19:37:29
+  act_start: 2014-07-17 19:37:29
+  act_end: 2014-07-17 19:37:29
+  memo: MyText

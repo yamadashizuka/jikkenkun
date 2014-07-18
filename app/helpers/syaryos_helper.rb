@@ -1,0 +1,2 @@
+module SyaryosHelper
+end

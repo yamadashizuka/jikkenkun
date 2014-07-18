@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @jikken.title %>
+</p>
+
+<p>
+  <strong>Plan start:</strong>
+  <%= @jikken.plan_start %>
+</p>
+
+<p>
+  <strong>Plan end:</strong>
+  <%= @jikken.plan_end %>
+</p>
+
+<p>
+  <strong>Act start:</strong>
+  <%= @jikken.act_start %>
+</p>
+
+<p>
+  <strong>Act end:</strong>
+  <%= @jikken.act_end %>
+</p>
+
+<p>
+  <strong>Memo:</strong>
+  <%= @jikken.memo %>
+</p>
+
+
+<h3>部品</h3>
+<% @buhins.each do |buhin| %>
+  <div>
+    <strong><%= buhin.hinmei %></strong>
+    <br />
+    <p><%= buhin.body %></p>
+    <p><%= link_to 'Delete', buhin_path(buhin), method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
+  </div>
+
+<%= render 'buhins/form' %>
+
+<% end %>
+<%= link_to 'Edit', edit_jikken_path(@jikken) %> |
+<%= link_to 'Back', jikkens_path %>

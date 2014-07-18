@@ -1,0 +1,47 @@
+<%= form_for(@buhin) do |f| %>
+  <% if @buhin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@buhin.errors.count, "error") %> prohibited this buhin from being saved:</h2>
+
+      <ul>
+      <% @buhin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= f.hidden_field :jikken_id %>
+
+  <div class="field">
+    <%= f.label :hinmei %><br>
+    <%= f.text_field :hinmei %>
+  </div>
+  <div class="field">
+    <%= f.label :hinban %><br>
+    <%= f.text_field :hinban %>
+  </div>
+  <div class="field">
+    <%= f.label :nouhin_sya %><br>
+    <%= f.text_field :nouhin_sya %>
+  </div>
+  <div class="field">
+    <%= f.label :nouhin_day %><br>
+    <%= f.datetime_select :nouhin_day %>
+  </div>
+  <div class="field">
+    <%= f.label :tantou %><br>
+    <%= f.text_field :tantou %>
+  </div>
+  <div class="field">
+    <%= f.label :kosu %><br>
+    <%= f.text_field :kosu %>
+  </div>
+  <div class="field">
+    <%= f.label :jikken_id %><br>
+    <%= f.number_field :jikken_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

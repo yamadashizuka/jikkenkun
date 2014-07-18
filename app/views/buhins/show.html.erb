@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hinmei:</strong>
+  <%= @buhin.hinmei %>
+</p>
+
+<p>
+  <strong>Hinban:</strong>
+  <%= @buhin.hinban %>
+</p>
+
+<p>
+  <strong>Nouhin sya:</strong>
+  <%= @buhin.nouhin_sya %>
+</p>
+
+<p>
+  <strong>Nouhin day:</strong>
+  <%= @buhin.nouhin_day %>
+</p>
+
+<p>
+  <strong>Tantou:</strong>
+  <%= @buhin.tantou %>
+</p>
+
+<p>
+  <strong>Kosu:</strong>
+  <%= @buhin.kosu %>
+</p>
+
+<p>
+  <strong>Jikken:</strong>
+  <%= @buhin.jikken_id %>
+</p>
+
+<%= link_to 'Edit', edit_buhin_path(@buhin) %> |
+<%= link_to 'Back', buhins_path %>
