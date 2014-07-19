@@ -3,15 +3,15 @@ class Jikken < ActiveRecord::Base
   has_many :syaryos
 
   def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      Jikken.create! row.to_hash
-    end
-
 #    CSV.foreach(file.path, headers: true) do |row|
-#      jikken = find_by_id(row["id"]) || new
-#      jikken.attributes = row.to_hash.slice(*accessible_attributes)
-#      jikken.save!
+#      Jikken.create! row.to_hash
 #    end
+
+    CSV.foreach(file.path, headers: true) do |row|
+      jikken = find_by_id(row["id"]) || new
+      jikken.attributes = row.to_hash.slice(*Jikken.attribute_names()) # Rails4ではこの書き方になるとのこと
+      jikken.save!
+    end
   
   end
   
