@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :syaryos
 
-  resources :jikkens
+  resources :jikkens do
+    collection { post :import }
+  end
 
  root to: redirect( '/jikkens' )
 

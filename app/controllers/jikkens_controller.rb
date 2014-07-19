@@ -5,6 +5,10 @@ class JikkensController < ApplicationController
   # GET /jikkens.json
   def index
     @jikkens = Jikken.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @jikkens.to_csv }
+    end
   end
 
   # GET /jikkens/1
@@ -65,6 +69,14 @@ class JikkensController < ApplicationController
     end
   end
 
+  # csv の読み込み
+  def import
+    Jikken.import(params[:file])
+    redirect_to action: "index", notice: "Jikkens imported."
+  end
+
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jikken
