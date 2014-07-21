@@ -4,7 +4,11 @@ class JikkensController < ApplicationController
   # GET /jikkens
   # GET /jikkens.json
   def index
+    date = Date.today
     @jikkens = Jikken.all
+    @yotei = Jikken.count_yotei_exp(date)
+    @jisseki = Jikken.count_jisseki_exp(date)
+    @label_dat = Jikken.graph_label(date)
   end
 
   # GET /jikkens/1
