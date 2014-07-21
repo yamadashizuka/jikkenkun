@@ -20,8 +20,8 @@
     <%= f.text_field :keeping_place %>
   </div>
   <div class="field">
-    <%= f.label :condition %><br>
-    <%= f.number_field :condition %>
+    <%= f.label :condition_id %><br>
+    <%= f.collection_select( :condition_id, Condition.all, :id, :name, :include_blank => true ) %>
   </div>
   <div class="field">
     <%= f.label :memo %><br>
