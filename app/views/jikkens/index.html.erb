@@ -73,3 +73,16 @@ var myBarChart = new Chart(ctx).Bar(data,options);
 <br>
 
 <%= link_to '新規追加', new_jikken_path %>
+
+<hr>
+<h4>実験リストのcsvアップロード</h4>
+<%= form_tag import_jikkens_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<hr>
+<h4>実験リストのcsvダウンロード</h4>
+<%= link_to "CSV", jikkens_path(format: "csv") %>
+
+

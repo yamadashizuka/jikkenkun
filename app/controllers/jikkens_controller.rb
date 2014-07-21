@@ -6,14 +6,23 @@ class JikkensController < ApplicationController
   def index
     date = Date.today
     @jikkens = Jikken.all
+<<<<<<< HEAD
     @yotei = Jikken.count_yotei_exp(date)
     @jisseki = Jikken.count_jisseki_exp(date)
     @label_dat = Jikken.graph_label(date)
+=======
+    respond_to do |format|
+      format.html
+      format.csv { send_data @jikkens.to_csv }
+    end
+>>>>>>> center/staging
   end
 
   # GET /jikkens/1
   # GET /jikkens/1.json
   def show
+    @syaryos = @jikken.syaryos.all
+    @syaryo  = @jikken.syaryos.build
     @buhins = @jikken.buhins.all
     @buhin  = @jikken.buhins.build
   end
@@ -67,6 +76,14 @@ class JikkensController < ApplicationController
     end
   end
 
+  # csv の読み込み
+  def import
+    Jikken.import(params[:file])
+    redirect_to action: "index", notice: "Jikkens imported."
+  end
+
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jikken
