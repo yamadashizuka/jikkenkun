@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :conditions
+
   resources :buhins
 
   resources :syaryos
