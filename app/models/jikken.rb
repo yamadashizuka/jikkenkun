@@ -51,7 +51,7 @@ class Jikken < ActiveRecord::Base
   def self.graph_label(date)
   	result = Array.new
     for i in 1 .. 12 do
-      result.push((date>>i-3).strftime("%Y年%m月").to_s) 
+      result.push((date>>i-3).strftime("%Y/%m").to_s) 
     end
     return result
   end
