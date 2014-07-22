@@ -30,8 +30,45 @@
   </tbody>
 </table>
 
+
+<br>
+
+<%= link_to '新規追加', new_jikken_path %>
+
+<hr>
 <div>
- 実験予定・実績グラフ
+ <h3>実験スケジュール</h3>
+</div>
+
+<div id="ganttChart"></div>
+<script>
+$(function() {
+  $("#ganttChart").ganttView({ 
+    data: ganttData,
+    slideWidth: 900
+  });
+});
+//ここからデータ（別ファイル化でもOK）
+var ganttData = [
+    <% i = 0 %>
+    <% @jikkens.each do |jikken| %>
+    <% i = i + 1 %>
+  {
+    id: <%= i %> , name: "<%= jikken.title %>", series: [
+      { name: "予定", start: "<%= jikken.plan_start.strftime("%Y/%m/%d") %>", end: "<%= jikken.plan_end.strftime("%Y/%m/%d") %>",color: "#EEAAAA" },
+      { name: "実績", start: "<%= jikken.act_start.strftime("%Y/%m/%d") %>", end: "<%= jikken.act_end.strftime("%Y/%m/%d") %>",color: "#AAAAFF" }
+    ]
+  },
+    <% end %>
+
+];
+</script>
+
+
+
+<hr>
+<div>
+ <h3>実験予定・実績グラフ</h3>
 </div>
 
 <canvas id="myChart" width="700" height="500"></canvas>
@@ -70,9 +107,6 @@ var ctx = document.getElementById("myChart").getContext("2d");
 var myBarChart = new Chart(ctx).Bar(data,options);
 </script>
 
-<br>
-
-<%= link_to '新規追加', new_jikken_path %>
 
 <hr>
 <h4>実験リストのcsvアップロード</h4>
