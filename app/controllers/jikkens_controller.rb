@@ -6,16 +6,16 @@ class JikkensController < ApplicationController
   def index
     date = Date.today
     @jikkens = Jikken.all
-<<<<<<< HEAD
     @yotei = Jikken.count_yotei_exp(date)
     @jisseki = Jikken.count_jisseki_exp(date)
     @label_dat = Jikken.graph_label(date)
-=======
+
+    #csv.sho
     respond_to do |format|
       format.html
       format.csv { send_data @jikkens.to_csv }
     end
->>>>>>> center/staging
+
   end
 
   # GET /jikkens/1
