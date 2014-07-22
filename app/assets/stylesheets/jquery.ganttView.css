@@ -1,7 +1,9 @@
 ﻿/*
+[original]
 jQuery.ganttView v.0.8.0
 Copyright (c) 2010 JC Grubbs - jc.grubbs@devmynd.com
 MIT License Applies
+https://github.com/thegrubbsian/jquery.ganttView
 */
 
 div.ganttview-hzheader-month,
@@ -72,7 +74,7 @@ div.ganttview-vtheader-item-name {
 
 div.ganttview-vtheader-series-name {
 	width: 130px;
-	height: 31px;
+	height: 31px; 
 	border-top: 1px solid #d0d0d0;
 	line-height: 16px;
 	padding-left: 5px;
@@ -108,7 +110,8 @@ div.ganttview-blocks {
 }
 
 div.ganttview-block-container {
-	height: 28px;
+	height: 31px;
+
 	padding-top: 4px;
 }
 

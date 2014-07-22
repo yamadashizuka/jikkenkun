@@ -1,7 +1,9 @@
 ﻿/*
+[original]
 jQuery.ganttView v.0.8.8
 Copyright (c) 2010 JC Grubbs - jc.grubbs@devmynd.com
 MIT License Applies
+https://github.com/thegrubbsian/jquery.ganttView
 */
 
 /*
@@ -43,7 +45,7 @@ behavior: {
     	var els = this;
         var defaults = {
             showWeekends: true,
-            cellWidth: 21,
+            cellWidth: 20,
             cellHeight: 31,
             slideWidth: 400,
             vHeaderWidth: 100,
@@ -116,7 +118,7 @@ behavior: {
             applyLastClass(div.parent());
 		}
 		
-		var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      var monthNames = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 
 		// Creates a 3 dimensional array [year][month][day] of every day 
 		// between the given start and end dates
@@ -167,8 +169,8 @@ behavior: {
 					totalW = totalW + w;
 					monthsDiv.append(jQuery("<div>", {
 						"class": "ganttview-hzheader-month",
-						"css": { "width": (w - 1) + "px" }
-					}).append(monthNames[m] + "/" + y));
+                      "css": { "width": w + "px" }
+                  }).append(y + "/" + monthNames[m] ));
 					for (var d in dates[y][m]) {
 						daysDiv.append(jQuery("<div>", { "class": "ganttview-hzheader-day" })
 							.append(dates[y][m][d].getDate()));
