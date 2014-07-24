@@ -4,6 +4,7 @@
       <th>ナンバープレート</th>
       <th>Keeping place</th>
       <th>Condition</th>
+      <th>保管期限</th>
       <th>Memo</th>
       <th>Status</th>
       <th>Jikken</th>
@@ -13,10 +14,15 @@
 
   <tbody>
     <% @syaryos.each do |syaryo| %>
+    <% if syaryo.deadline.present? and syaryo.deadline < Date.today %>
+      <tr class="warning_color">
+    <% else %>
       <tr>
+    <% end %>
         <td><%= syaryo.number_plate %></td>
         <td><%= syaryo.keeping_place %></td>
         <td><%= syaryo.condition.name %></td>
+        <td><%= syaryo.deadline %></td>
         <td><%= syaryo.memo %></td>
         <td><%= syaryo.status %></td>
         <td><%= syaryo.jikken_id %></td>

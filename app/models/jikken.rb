@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: jikkens
+#
+#  id         :integer          not null, primary key
+#  title      :string(255)
+#  plan_start :datetime
+#  plan_end   :datetime
+#  act_start  :datetime
+#  act_end    :datetime
+#  memo       :text
+#  created_at :datetime
+#  updated_at :datetime
+#  tantou     :string(255)
+#  deadline   :date
+#
+
 class Jikken < ActiveRecord::Base
   has_many :buhins
   has_many :syaryos

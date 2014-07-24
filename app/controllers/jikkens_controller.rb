@@ -4,8 +4,11 @@ class JikkensController < ApplicationController
   # GET /jikkens
   # GET /jikkens.json
   def index
+
     date = Date.today
-    @jikkens = Jikken.all
+    @search = Jikken.search(params[:q])
+    @jikkens = @search.result.page params[:page]
+
     @yotei = Jikken.count_yotei_exp(date)
     @jisseki = Jikken.count_jisseki_exp(date)
     @label_dat = Jikken.graph_label(date)
@@ -92,6 +95,6 @@ class JikkensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jikken_params
-      params.require(:jikken).permit(:title, :plan_start, :plan_end, :act_start, :act_end, :memo)
+      params.require(:jikken).permit(:title, :plan_start, :plan_end, :act_start, :act_end, :memo, :tantou, :deadline)
     end
 end

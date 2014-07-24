@@ -27,6 +27,7 @@
           <li class="active"><a href="/jikkens">実験一覧</a></li>
           <li class="active"><a href="/syaryos">車両一覧</a></li>
           <li class="active"><a href="/buhins">部品一覧</a></li>
+          <li class="active"><a href="/notifications">お知らせメンテナンス</a></li>
         </ul>
       </div>
 
@@ -34,6 +35,27 @@
   </nav>
 
   <div class="container">
+    <% infos = Notification.information %>
+    <% if infos.present? %>
+      <div class="alert alert-info">
+        <% infos.each do |info| %>
+          <%= info.contents %><br>
+        <% end %>
+        <% if Syaryo.warning? %>
+          <div class="warning_color">
+            保管期限切れの車両があります
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% unless notice.blank? %>
+      <div class="alert alert-success"><%= notice %></div>
+    <% end %>
+    <% unless alert.blank? %>
+      <div class="alert alert-danger"><%= alert %></div>
+    <% end %>
+
     <%= yield %>
   </div>
 
