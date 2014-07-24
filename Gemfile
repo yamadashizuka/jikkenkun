@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'jquery-turbolinks'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 
@@ -47,3 +47,19 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
+# Use search
+gem 'ransack'
+
+# Use Login
+gem 'devise'
+
+# Use paging
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
+#Use annotation
+gem 'annotate'
+
+#Use erd
+gem 'rails-erd'

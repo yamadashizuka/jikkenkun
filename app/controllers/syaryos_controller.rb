@@ -69,6 +69,6 @@ class SyaryosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def syaryo_params
-      params.require(:syaryo).permit(:number_plate, :keeping_place, :condition, :memo, :status, :jikken_id)
+      params.require(:syaryo).permit(:number_plate, :keeping_place, :condition_id, :memo, :status, :jikken_id,  :deadline)
     end
 end

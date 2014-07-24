@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718012609) do
+ActiveRecord::Schema.define(version: 20140724050839) do
 
   create_table "buhins", force: true do |t|
     t.string   "hinmei"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20140718012609) do
     t.string   "tantou"
     t.integer  "kosu"
     t.integer  "jikken_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "deadline"
+  end
+
+  create_table "conditions", force: true do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,17 +42,28 @@ ActiveRecord::Schema.define(version: 20140718012609) do
     t.text     "memo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tantou"
+    t.date     "deadline"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.string   "contents"
+    t.date     "available_from"
+    t.date     "available_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "syaryos", force: true do |t|
     t.string   "number_plate"
     t.string   "keeping_place"
-    t.integer  "condition"
+    t.integer  "condition_id"
     t.text     "memo"
     t.integer  "status"
     t.integer  "jikken_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "deadline"
   end
 
 end

@@ -4,7 +4,21 @@ class JikkensController < ApplicationController
   # GET /jikkens
   # GET /jikkens.json
   def index
-    @jikkens = Jikken.all
+
+    date = Date.today
+    @search = Jikken.search(params[:q])
+    @jikkens = @search.result.page params[:page]
+
+    @yotei = Jikken.count_yotei_exp(date)
+    @jisseki = Jikken.count_jisseki_exp(date)
+    @label_dat = Jikken.graph_label(date)
+
+    #csv.sho
+    respond_to do |format|
+      format.html
+      format.csv { send_data @jikkens.to_csv }
+    end
+
   end
 
   # GET /jikkens/1
@@ -65,6 +79,14 @@ class JikkensController < ApplicationController
     end
   end
 
+  # csv の読み込み
+  def import
+    Jikken.import(params[:file])
+    redirect_to action: "index", notice: "Jikkens imported."
+  end
+
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jikken
@@ -73,6 +95,6 @@ class JikkensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jikken_params
-      params.require(:jikken).permit(:title, :plan_start, :plan_end, :act_start, :act_end, :memo)
+      params.require(:jikken).permit(:title, :plan_start, :plan_end, :act_start, :act_end, :memo, :tantou, :deadline)
     end
 end
