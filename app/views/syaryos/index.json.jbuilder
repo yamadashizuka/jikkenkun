@@ -1,4 +1,4 @@
 json.array!(@syaryos) do |syaryo|
-  json.extract! syaryo, :id, :number_plate, :keeping_place, :condition, :memo, :status, :jikken_id
+  json.extract! syaryo, :id, :number_plate, :keeping_place, :condition, :memo, :status, :jikken_id, :deadline
   json.url syaryo_url(syaryo, format: :json)
 end
