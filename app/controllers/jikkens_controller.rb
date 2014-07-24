@@ -7,7 +7,8 @@ class JikkensController < ApplicationController
 
     date = Date.today
     @search = Jikken.search(params[:q])
-    @jikkens = @search.result
+    @jikkens = @search.result.page params[:page]
+
     @yotei = Jikken.count_yotei_exp(date)
     @jisseki = Jikken.count_jisseki_exp(date)
     @label_dat = Jikken.graph_label(date)

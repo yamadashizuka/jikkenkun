@@ -60,3 +60,6 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 
 #Use annotation
 gem 'annotate'
+
+#Use erd
+gem 'rails-erd'

@@ -12,6 +12,7 @@
 #  jikken_id  :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  deadline   :date
 #
 
 class Buhin < ActiveRecord::Base

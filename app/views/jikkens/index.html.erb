@@ -61,6 +61,7 @@
   </tbody>
 </table>
 
+<%= paginate @jikkens %>
 
 <br>
 
@@ -85,9 +86,10 @@ var ganttData = [
     <% @jikkens.each do |jikken| %>
     <% i = i + 1 %>
   {
-    id: <%= i %> , name: "<%= jikken.title %>", series: [
-      { name: "予定", start: "<%= jikken.plan_start.strftime("%Y/%m/%d") %>", end: "<%= jikken.plan_end.strftime("%Y/%m/%d") %>",color: "#EEAAAA" },
-      { name: "実績", start: "<%= jikken.act_start.strftime("%Y/%m/%d") %>", end: "<%= jikken.act_end.strftime("%Y/%m/%d") %>",color: "#AAAAFF" }
+    id: <%= i %> , name: "<%= jikken.title %>",
+     series: [
+      { name: "予定", start: "<%= jikken.plan_start.strftime("%Y/%m/%d") if jikken.plan_start.present? %>", end: "<%= jikken.plan_end.strftime("%Y/%m/%d") if jikken.plan_end.present? %>",color: "#EEAAAA" },
+      { name: "実績", start: "<%= jikken.act_start.strftime("%Y/%m/%d") if jikken.act_start.present? %>", end: "<%= jikken.act_end.strftime("%Y/%m/%d") if jikken.act_end.present?  %>",color: "#AAAAFF" }
     ]
   },
     <% end %>

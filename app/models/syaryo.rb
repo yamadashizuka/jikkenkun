@@ -11,9 +11,15 @@
 #  jikken_id     :integer
 #  created_at    :datetime
 #  updated_at    :datetime
+#  deadline      :date
 #
 
 class Syaryo < ActiveRecord::Base
   belongs_to :jikken
   belongs_to :condition, class_name: 'Condition', foreign_key: 'condition_id'
+
+  def self.warning?
+   self.where(["deadline < ? ", Date.today]).count > 0
+  end
+
 end

@@ -11,6 +11,8 @@
 #  memo       :text
 #  created_at :datetime
 #  updated_at :datetime
+#  tantou     :string(255)
+#  deadline   :date
 #
 
 class Jikken < ActiveRecord::Base
