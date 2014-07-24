@@ -69,6 +69,6 @@ class BuhinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def buhin_params
-      params.require(:buhin).permit(:hinmei, :hinban, :nouhin_sya, :nouhin_day, :tantou, :kosu, :jikken_id)
+      params.require(:buhin).permit(:hinmei, :hinban, :nouhin_sya, :nouhin_day, :tantou, :kosu, :jikken_id, :deadline)
     end
 end
