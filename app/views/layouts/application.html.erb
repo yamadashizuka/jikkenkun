@@ -22,18 +22,50 @@
         </button>
         <a class="navbar-brand" href="/">実験管理(仮)トップ</a>
       </div>
+
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/jikkens">実験一覧</a></li>
-          <li class="active"><a href="/syaryos">車両一覧</a></li>
-          <li class="active"><a href="/buhins">部品一覧</a></li>
+          <% if user_signed_in? %>
+            <li class="active"><a href="/jikkens">実験一覧</a></li>
+            <li class="active"><a href="/syaryos">車両一覧</a></li>
+            <li class="active"><a href="/buhins">部品一覧</a></li>
+            <li class="active"><a href="/notifications">お知らせメンテナンス</a></li>
+　　　　　 　<p class="navbar-text pull-right">
+         ログイン名: <strong><%= current_user.username %></strong>　　　
+           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          </P>
+          <% else %>
+         <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
+         <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+         <% end %>
         </ul>
       </div>
-
     </div>
   </nav>
-
   <div class="container">
+    <% if user_signed_in? %>
+    <% infos = Notification.information %>
+    <% if infos.present? %>
+      <div class="alert alert-info">
+        <% infos.each do |info| %>
+          <%= info.contents %><br>
+        <% end %>
+        <% if Syaryo.warning? %>
+          <div class="warning_color">
+            保管期限切れの車両があります
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <% end %>
+
+    <% if notice.present? %>
+      <div class="alert alert-success"><%= notice %></div>
+    <% end %>
+    <% if alert.present? %>
+      <div class="alert alert-danger"><%= alert %></div>
+    <% end %>
+
     <%= yield %>
   </div>
 

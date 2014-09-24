@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :notifications
+
+  resources :conditions
+
   resources :buhins
 
   resources :syaryos
 
-  resources :jikkens
+  resources :jikkens do
+    collection { post :import }
+  end
 
  root to: redirect( '/jikkens' )
 

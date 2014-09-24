@@ -1,0 +1,17 @@
+<p>
+  <strong>Contents:</strong>
+  <%= @notification.contents %>
+</p>
+
+<p>
+  <strong>Available from:</strong>
+  <%= @notification.available_from %>
+</p>
+
+<p>
+  <strong>Available to:</strong>
+  <%= @notification.available_to %>
+</p>
+
+<%= link_to 'Edit', edit_notification_path(@notification) %> |
+<%= link_to 'Back', notifications_path %>

@@ -1,8 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @jikken.title %>
+</p>
+
+<p>
+  <strong>Tantou:</strong>
+  <%= @jikken.tantou %>
 </p>
 
 <p>
@@ -32,29 +35,11 @@
 
 <hr>
 <h3>車両</h3>
-<% @syaryos.each do |syaryo| %>
-  <div>
-    <strong><%= syaryo.number_plate %></strong>
-    <br />
-    <p><%= syaryo.keeping_place %></p>
-    <p><%= link_to 'Delete', syaryo_path(syaryo), method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
-  </div>
-<% end %>
-
-<%= render 'syaryos/form' %>
+<%= render 'syaryos/index' %>
 
 <hr>
 <h3>部品</h3>
-<% @buhins.each do |buhin| %>
-  <div>
-    <strong><%= buhin.hinmei %></strong>
-    <br />
-    <p><%= buhin.hinban %></p>
-    <p><%= link_to 'Delete', buhin_path(buhin), method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
-  </div>
-<% end %>
-
-<%= render 'buhins/form' %>
+<%= render 'buhins/index' %>
 
 <hr>
 <%= link_to 'Edit', edit_jikken_path(@jikken) %> |
