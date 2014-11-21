@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140724214714) do
     t.integer  "jikken_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "condition2_id"
     t.date     "deadline"
   end
 
