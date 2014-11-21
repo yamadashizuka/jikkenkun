@@ -21,7 +21,7 @@
     <% end %>
         <td><%= syaryo.number_plate %></td>
         <td><%= syaryo.keeping_place %></td>
-        <td><%= syaryo.condition.name %></td>
+        <td><%= syaryo.condition.name if syaryo.condition.present? %></td>
         <td><%= syaryo.deadline %></td>
         <td><%= syaryo.memo %></td>
         <td><%= syaryo.status %></td>
